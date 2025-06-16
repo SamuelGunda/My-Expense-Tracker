@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .account-list-container {
+    margin-top: 1rem;
+  }
+
+  .account-list-container h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .card-header {
+    border-bottom: none;
+    padding: 1rem 1.25rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .badge {
+    font-weight: 500;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+  }
+}

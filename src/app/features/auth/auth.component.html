@@ -1,0 +1,123 @@
+<div class="auth-page-container flex flex-col items-center justify-center p-4 bg-gradient-to-br from-slate-100 to-slate-300 dark:from-gray-800 dark:to-gray-900"
+     style="min-height: calc(100vh - 4rem);">
+  <div class="mb-8 text-center">
+    <div>
+      <span
+        class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">My</span>
+      <span class="text-5xl font-extrabold text-gray-800 dark:text-white sm:text-xl">Expense</span>
+      <span
+        class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-300 dark:to-purple-400">Tracker</span>
+    </div>
+    <p class="text-gray-800 dark:text-gray-400 mt-2">Securely access your expense records.</p>
+  </div>
+
+  <div class="auth-card bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md overflow-hidden">
+    <!-- Card Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 text-white">
+      <h2 class="text-2xl font-bold text-center">
+        {{ mode === 'login' ? 'Welcome Back!' : 'Create Your Account' }}
+      </h2>
+    </header>
+
+    <!-- Card Body -->
+    <div class="p-6 sm:p-8">
+      <form [formGroup]="activeForm" (ngSubmit)="onSubmit()" novalidate>
+        <!-- Email Field -->
+        <div class="mb-5">
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            autocomplete="email"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+            [ngClass]="{'border-red-500 dark:border-red-400': authFormsService.shouldShowError(emailControl, formSubmitted) && emailControl?.invalid}"
+            placeholder="you@example.com"
+            aria-required="true"
+            aria-describedby="email-error"
+            required
+          >
+          <div *ngIf="authFormsService.hasError(emailControl, 'required', formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="email-required-error">
+            Email is required.
+          </div>
+          <div *ngIf="authFormsService.hasError(emailControl, 'email', formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="email-format-error">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-5">
+          <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            autocomplete="{{ mode === 'login' ? 'current-password' : 'new-password' }}"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+            [ngClass]="{'border-red-500 dark:border-red-400': authFormsService.shouldShowError(passwordControl, formSubmitted) && passwordControl?.invalid}"
+            placeholder="••••••••"
+            aria-required="true"
+            aria-describedby="password-error"
+            required
+          >
+          <div *ngIf="authFormsService.hasError(passwordControl, 'required', formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="password-required-error">
+            Password is required.
+          </div>
+          <div *ngIf="authFormsService.hasError(passwordControl, 'minlength', formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="password-length-error">
+            Password must be at least 6 characters.
+          </div>
+        </div>
+
+        <!-- Confirm Password Field (Register Only) -->
+        <div *ngIf="mode === 'register'" class="mb-6">
+          <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            autocomplete="new-password"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+            [ngClass]="{'border-red-500 dark:border-red-400': authFormsService.shouldShowError(confirmPasswordControl, formSubmitted) && confirmPasswordControl?.invalid}"
+            placeholder="••••••••"
+            aria-required="true"
+            aria-describedby="confirm-password-error"
+            required
+          >
+          <div *ngIf="authFormsService.hasError(confirmPasswordControl, 'required', formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="confirm-password-required-error">
+            Please confirm your password.
+          </div>
+          <div *ngIf="authFormsService.hasPasswordMismatchError(activeForm, formSubmitted)" class="text-red-500 dark:text-red-400 text-xs mt-1" id="password-match-error">
+            Passwords do not match.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          [disabled]="!activeForm.valid"
+          class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition duration-150 ease-in-out mb-6 disabled:opacity-60 disabled:cursor-not-allowed">
+          <fa-icon [icon]="mode === 'login' ? faSignInAlt : faUserPlus" class="mr-2" aria-hidden="true"></fa-icon>
+          {{ mode === 'login' ? 'Sign In' : 'Create Account' }}
+        </button>
+
+        <!-- Toggle Mode Link -->
+        <div class="text-center">
+          <button
+            type="button"
+            (click)="toggleMode()"
+            class="text-blue-600 dark:text-blue-400 hover:underline focus:outline-none text-sm">
+            {{ mode === 'login' ? 'Need an account? Sign Up' : 'Already have an account? Sign In' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Link to Landing - More Visible -->
+  <div class="mt-10 text-center">
+    <a routerLink="/" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-offset-gray-800">
+      <fa-icon [icon]="faArrowLeft" class="mr-2 -ml-1 h-5 w-5"></fa-icon>
+      Back to Main Page
+    </a>
+  </div>
+</div>

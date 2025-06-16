@@ -1,0 +1,60 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md border-b border-gray-200 dark:border-gray-700"
+  role="navigation" aria-label="Main navigation">
+  <div class="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a routerLink="/" class="flex items-center" aria-label="My Expense Tracker Home">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div>
+            <span
+              class="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">My</span>
+            <span class="text-xl font-extrabold text-gray-800 dark:text-white">Expense</span>
+            <span
+              class="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-300 dark:to-purple-400">Tracker</span>
+          </div>
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button
+          (click)="toggleTheme()"
+          class="btn-icon"
+          aria-label="Toggle dark mode">
+          <fa-icon *ngIf="themeService.isDarkMode()" [icon]="faSun" class="h-5 w-5" aria-hidden="true"></fa-icon>
+          <fa-icon *ngIf="!themeService.isDarkMode()" [icon]="faMoon" class="h-5 w-5" aria-hidden="true"></fa-icon>
+        </button>
+
+        <!-- Show login and register buttons when not authenticated AND not on /auth page -->
+        <ng-container *ngIf="!(isAuthenticated$ | async) && (showButtons$ | async)">
+          <button
+            (click)="login()"
+            class="btn-primary btn-icon-only">
+            <fa-icon [icon]="faSignInAlt" aria-hidden="true"></fa-icon>
+            <span class="btn-text">Login</span>
+          </button>
+
+          <button
+            (click)="register()"
+            class="btn-accent btn-icon-only">
+            <fa-icon [icon]="faUserPlus" aria-hidden="true"></fa-icon>
+            <span class="btn-text">Register</span>
+          </button>
+        </ng-container>
+
+        <!-- Show logout button when authenticated -->
+        <button
+          *ngIf="isAuthenticated$ | async"
+          (click)="logout()"
+          class="btn-danger"
+          aria-label="Logout">
+          <fa-icon [icon]="faSignOutAlt" class="mr-2" aria-hidden="true"></fa-icon>
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

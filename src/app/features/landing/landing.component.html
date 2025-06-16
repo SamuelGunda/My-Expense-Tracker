@@ -1,0 +1,199 @@
+<!-- Hero Section -->
+<section
+  class="relative min-h-screen flex items-center bg-gradient-to-br from-slate-100 to-slate-300 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+          Take Control of Your <span class="text-blue-600 dark:text-blue-400">Finances</span>
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+          Track expenses, manage accounts, and plan your budget all in one place. My Expense Tracker makes financial
+          management simple and stress-free.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1"
+            routerLink="/home">
+            Get Started
+          </button>
+<!--          TODO: Swap colours? On hover text to blue on white theme-->
+          <button
+            class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
+            Learn More
+          </button>
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <img ngSrc="/hero-image.svg" alt="Financial management illustration" class="w-full h-auto" priority
+             height="600" width="800">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="bg-gray-50 dark:bg-gray-800 py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Key Features</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Everything you need to manage your personal finances effectively
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Feature Card 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-container bg-blue-100 dark:bg-blue-900">
+          <fa-icon [icon]="faMoneyBillWave" [fixedWidth]="true" class="feature-icon text-blue-600 dark:text-blue-300"></fa-icon>
+        </div>
+        <h3 class="feature-title">Multi-Account Tracking</h3>
+        <p class="feature-description">
+          Manage all your accounts in one place. Track balances, monitor transactions, and get a complete view of your finances.
+        </p>
+      </div>
+
+      <!-- Feature Card 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-container bg-green-100 dark:bg-green-900">
+          <fa-icon [icon]="faExchangeAlt" [fixedWidth]="true" class="feature-icon text-green-600 dark:text-green-300"></fa-icon>
+        </div>
+        <h3 class="feature-title">Easy Money Transfers</h3>
+        <p class="feature-description">
+          Transfer funds between accounts with just a few clicks. Keep track of all your transfers with detailed history and reporting.
+        </p>
+      </div>
+
+      <!-- Feature Card 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-container bg-purple-100 dark:bg-purple-900">
+          <fa-icon [icon]="faFileInvoice" [fixedWidth]="true" class="feature-icon text-purple-600 dark:text-purple-300"></fa-icon>
+        </div>
+        <h3 class="feature-title">Bill Tracking & Reminders</h3>
+        <p class="feature-description">
+          Never miss a payment again. Set up bill reminders, track due dates, and manage recurring expenses with ease.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="bg-slate-300 dark:bg-gray-900 py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">How It Works</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Getting started with My Expense Tracker is quick and easy
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-number">
+          <span>1</span>
+        </div>
+        <h3 class="step-title">Create an Account</h3>
+        <p class="step-description">
+          Sign up in seconds and set up your profile with your financial goals and preferences.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-number">
+          <span>2</span>
+        </div>
+        <h3 class="step-title">Connect Your Accounts</h3>
+        <p class="step-description">
+          Add your bank accounts, credit cards, and other financial accounts to get a complete view.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-number">
+          <span>3</span>
+        </div>
+        <h3 class="step-title">Start Tracking</h3>
+        <p class="step-description">
+          Begin tracking your expenses, setting up bill reminders, and managing your money with confidence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="bg-gray-50 dark:bg-gray-800 py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">What Our Users Say</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Thousands of people are already managing their finances better with My Expense Tracker
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-stars">
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+        </div>
+        <p class="review-text">
+          "This app has completely changed how I manage my money. I can finally keep track of all my accounts in one place and never miss a bill payment."
+        </p>
+        <div class="review-author">Sarah J.</div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-stars">
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+        </div>
+        <p class="review-text">
+          "The expense tracking feature is so intuitive. I've tried many apps but this one is by far the best for keeping my finances organized."
+        </p>
+        <div class="review-author">Michael T.</div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-stars">
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="fasStar" class="star-icon"></fa-icon>
+          <fa-icon [icon]="farStar" class="star-icon"></fa-icon>
+        </div>
+        <p class="review-text">
+          "I've been using this app for 3 months and it's helped me save over $300 already by identifying unnecessary expenses."
+        </p>
+        <div class="review-author">David R.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-r from-blue-600 to-indigo-700 py-20">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-white mb-6">Ready to Take Control of Your Finances?</h2>
+    <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+      Join thousands of users who are already managing their money better with My Expense Tracker.
+    </p>
+    <button
+      class="bg-white text-blue-600 font-medium py-3 px-8 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 transform hover:-translate-y-1">
+      Get Started for Free
+    </button>
+  </div>
+</section>

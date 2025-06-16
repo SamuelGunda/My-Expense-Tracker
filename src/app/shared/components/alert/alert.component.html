@@ -1,0 +1,44 @@
+<div *ngIf="alert.isShown"
+     [@slideInOut]
+     class="alert-container fixed top-20 right-4 z-50 max-w-sm w-full shadow-lg rounded-lg overflow-hidden flex"
+     role="alert"
+     [attr.aria-live]="'assertive'"
+     [ngClass]="{'bg-green-50 dark:bg-green-900/50': alert.status,
+                'bg-red-50 dark:bg-red-900/50': !alert.status}">
+  <!-- Left border stripe -->
+  <div class="alert-stripe w-2" [ngClass]="alert.status ? 'bg-green-500' : 'bg-red-500'"></div>
+
+  <div class="alert-content p-4 flex items-start flex-grow">
+    <!-- Success Icon -->
+    <div *ngIf="alert.status" class="alert-icon flex-shrink-0">
+      <fa-icon [icon]="faCheckCircle" class="h-6 w-6 text-green-500" aria-hidden="true"></fa-icon>
+    </div>
+
+    <!-- Error Icon -->
+    <div *ngIf="!alert.status" class="alert-icon flex-shrink-0">
+      <fa-icon [icon]="faExclamationCircle" class="h-6 w-6 text-red-500" aria-hidden="true"></fa-icon>
+    </div>
+
+    <div class="ml-3 w-full">
+      <p class="alert-message text-sm font-medium"
+         [ngClass]="{'text-green-800 dark:text-green-200': alert.status,
+                     'text-red-800 dark:text-red-200': !alert.status}">
+        {{ alert.message }}
+      </p>
+    </div>
+
+    <div class="ml-auto pl-3">
+      <div class="-mx-1.5 -my-1.5">
+        <button (click)="closeAlert()"
+                class="alert-close-btn inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                aria-label="Dismiss alert"
+                [ngClass]="{'text-green-500 hover:bg-green-100 dark:hover:bg-green-800 focus:ring-green-600 focus:ring-offset-green-50': alert.status,
+                           'text-red-500 hover:bg-red-100 dark:hover:bg-red-800 focus:ring-red-600 focus:ring-offset-red-50': !alert.status}">
+          <span class="sr-only">Dismiss</span>
+          <fa-icon [icon]="faTimes" class="h-5 w-5" aria-hidden="true"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

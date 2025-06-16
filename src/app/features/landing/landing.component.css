@@ -1,0 +1,194 @@
+/* Feature Card Styles */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .feature-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 2rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(229, 231, 235);
+    @variant dark {
+      background-color: rgb(55, 65, 81);
+      border-color: rgb(75, 85, 99);
+    }
+    @variant  hover {
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  .feature-icon-container {
+    border-radius: 9999px;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: block;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    margin-bottom: 0.75rem;
+    text-align: center;
+    @variant dark {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .feature-description {
+    color: rgb(75, 85, 99);
+    text-align: center;
+    flex-grow: 1;
+    @variant dark {
+      color: rgb(209, 213, 219);
+    }
+  }
+
+  .step-card {
+    text-align: center;
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition-property: all;
+    transition-duration: 300ms;
+    @variant dark {
+      background-color: rgb(55, 65, 81);
+      border-color: rgb(75, 85, 99);
+    }
+    @variant  hover {
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  .step-number {
+    background-color: rgb(219, 234, 254);
+    border-radius: 9999px;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    @variant dark {
+      background-color: rgb(30, 58, 138);
+    }
+  }
+
+  .step-number span {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: rgb(37, 99, 235);
+    @variant dark {
+      color: rgb(147, 197, 253);
+    }
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    margin-bottom: 0.75rem;
+    @variant dark {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .step-description {
+    color: rgb(75, 85, 99);
+    @variant dark {
+      color: rgb(209, 213, 219);
+    }
+  }
+
+  .review-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(229, 231, 235);
+    transition-property: all;
+    transition-duration: 300ms;
+    @variant dark {
+      background-color: rgb(55, 65, 81);
+      border-color: rgb(75, 85, 99);
+    }
+    @variant hover {
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  .review-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .star-icon {
+    color: rgb(250, 204, 21);
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    font-size: 1.125rem;
+    @variant dark {
+      color: rgb(253, 224, 71);
+    }
+  }
+
+  .review-text {
+    color: rgb(75, 85, 99);
+    text-align: center;
+    flex-grow: 1;
+    font-style: italic;
+    @variant dark {
+      color: rgb(209, 213, 219);
+    }
+  }
+
+  .review-author {
+    text-align: center;
+    font-weight: 500;
+    color: rgb(31, 41, 55);
+    margin-top: 1rem;
+    @variant dark {
+      color: rgb(229, 231, 235);
+    }
+  }
+}
+
+fa-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+fa-icon svg {
+  height: 100%;
+  width: 100%;
+}

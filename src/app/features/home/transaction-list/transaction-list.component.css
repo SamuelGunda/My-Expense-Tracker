@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .transaction-item {
+    @apply py-4 flex items-center;
+    @variant hover {
+      @apply bg-gray-50 dark:bg-gray-700;
+    }
+  }
+  
+  .transaction-icon {
+    @apply flex-shrink-0 mr-4;
+  }
+  
+  .transaction-icon-container {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+  }
+  
+  .transaction-details {
+    @apply flex-grow min-w-0;
+  }
+  
+  .transaction-title {
+    @apply text-sm font-medium text-gray-900 dark:text-white truncate;
+  }
+  
+  .transaction-subtitle {
+    @apply text-xs text-gray-500 dark:text-gray-400;
+  }
+  
+  .transaction-amount {
+    @apply text-sm font-semibold;
+  }
+  
+  .transaction-category {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium mt-1;
+  }
+}
